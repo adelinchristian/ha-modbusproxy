@@ -8,13 +8,14 @@ A powerful multi-device Modbus TCP proxy for Home Assistant with enhanced loggin
 
 ## ✅ STABLE VERSION
 
-**This is version 2.2.6 with comprehensive TCP-to-RTU device support and full serial device access.**
+**This is version 2.2.7 with Docker BuildKit builds, comprehensive TCP-to-RTU device support, and full serial device access.**
 
 **✅ Key Features:**
 - **Protocol Auto-Detection**: Automatically handles TCP and RTU over TCP from Home Assistant
 - **Universal Support**: All protocol combinations supported (TCP ↔ RTU ↔ RTU over TCP)
 - **IPv6 Compatibility**: Full dual-stack IPv4 and IPv6 support
 - **Enhanced Debugging**: Detailed protocol transformation logging
+- **Supported architectures**: **amd64** and **aarch64** (arm64) only
 
 **Installation:**
 1. Add the repository: `https://github.com/TCzerny/ha-modbusproxy`
@@ -22,6 +23,14 @@ A powerful multi-device Modbus TCP proxy for Home Assistant with enhanced loggin
 3. Configure your Modbus devices
 
 **Note:** Home Assistant Supervisor automatically installs the latest stable version.
+
+## 🆕 What's New in Version 2.2.7
+
+**Docker BuildKit build migration:**
+- 🐳 **BuildKit base image** - Add-on image now uses pinned `ghcr.io/home-assistant/base-python:3.13-alpine3.23` in the `Dockerfile` (replaces `build.yaml`). Aligns with [Home Assistant builder migration to Docker BuildKit](https://developers.home-assistant.io/blog/2026/04/02/builder-migration).
+
+**Breaking change — architectures:**
+- ⚠️ **`armhf` and `armv7` no longer supported** - Only **amd64** and **aarch64** (arm64) are listed in `config.yaml`. Use a 64-bit OS (e.g. aarch64) on Raspberry Pi-class hardware.
 
 ## 🆕 What's New in Version 2.2.6
 
